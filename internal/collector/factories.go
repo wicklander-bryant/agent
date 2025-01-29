@@ -7,8 +7,6 @@ package collector
 import (
 	"errors"
 
-	nginxreceiver "github.com/nginx/agent/v3/internal/collector/nginxossreceiver"
-	"github.com/nginx/agent/v3/internal/collector/nginxplusreceiver"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusexporter"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/headerssetterextension"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension"
@@ -34,6 +32,10 @@ import (
 	"go.opentelemetry.io/collector/processor/memorylimiterprocessor"
 	"go.opentelemetry.io/collector/receiver"
 	"go.opentelemetry.io/collector/receiver/otlpreceiver"
+
+	nginxreceiver "github.com/nginx/agent/v3/internal/collector/nginxossreceiver"
+	"github.com/nginx/agent/v3/internal/collector/nginxplusreceiver"
+	"github.com/nginx/agent/v3/internal/collector/securityviolationsprocessor"
 )
 
 // OTelComponentFactories returns all the OTel collector components supported
@@ -115,6 +117,9 @@ func createProcessorFactories() (map[component.Type]processor.Factory, error) {
 		redactionprocessor.NewFactory(),
 		resourceprocessor.NewFactory(),
 		transformprocessor.NewFactory(),
+
+		// TODO: Is the processor ordering ok?
+		securityviolationsprocessor.NewFactory(),
 	}
 
 	return processor.MakeFactoryMap(processorList...)

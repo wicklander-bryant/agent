@@ -1,0 +1,10 @@
+type: nginx
+scope_name: otelcol/securityviolationsprocessor
+
+status:
+  class: processor
+  stability:
+    beta: [logs]
+  distributions: [contrib]
+  codeowners:
+    active: [wicklander-bryant]

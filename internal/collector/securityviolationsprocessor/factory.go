@@ -7,6 +7,9 @@ package securityviolationsprocessor
 
 import (
 	"context"
+	"fmt"
+
+	"github.com/go-viper/mapstructure/v2"
 
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/consumer"
@@ -18,30 +21,44 @@ import (
 
 // nolint: ireturn
 func NewFactory() processor.Factory {
-	return processor.NewFactory(
+	factory := processor.NewFactory(
 		metadata.Type,
 		CreateDefaultSecurityViolationsConfig,
 		processor.WithLogs(CreateSecurityViolationsProcessorFunc, component.StabilityLevelBeta),
 	)
+
+	return factory
 }
+
+// nolint: ireturn
 func CreateSecurityViolationsProcessorFunc(
 	_ context.Context,
 	_ processor.Settings,
-	_ component.Config,
+	cfg component.Config,
 	logs consumer.Logs,
 ) (processor.Logs, error) {
 	config := zap.NewProductionConfig()
 	config.Level = zap.NewAtomicLevelAt(zap.DebugLevel)
 
+	var convertedConfig SecurityViolationsConfig
+	err := mapstructure.Decode(cfg, &convertedConfig)
+	if err != nil {
+		return nil, err
+	}
+
 	logger, err := config.Build()
 	if err != nil {
-		// TODO: Shouldn't panic
-		panic(err)
+		return nil, err
 	}
 	sep := &SecurityViolationsProcessor{
-		log:  logger,
-		next: logs,
+		serviceName: SecurityViolationsProcessorName,
+		log:         logger,
+		next:        logs,
+		compression: convertedConfig.Compression,
 	}
+
+	logger.Debug(fmt.Sprintf("create security violation processor (compression=%d)",
+		convertedConfig.Compression))
 
 	return sep, nil
 }

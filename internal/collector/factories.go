@@ -117,8 +117,6 @@ func createProcessorFactories() (map[component.Type]processor.Factory, error) {
 		redactionprocessor.NewFactory(),
 		resourceprocessor.NewFactory(),
 		transformprocessor.NewFactory(),
-
-		// TODO: Is the processor ordering ok?
 		securityviolationsprocessor.NewFactory(),
 	}
 

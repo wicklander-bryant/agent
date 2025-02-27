@@ -9,8 +9,10 @@ require (
 	github.com/bufbuild/protovalidate-go v0.2.1
 	github.com/cenkalti/backoff/v4 v4.3.0
 	github.com/docker/docker v27.3.1+incompatible
+	github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3
 	github.com/fsnotify/fsnotify v1.8.0
 	github.com/go-resty/resty/v2 v2.16.2
+	github.com/go-viper/mapstructure/v2 v2.2.1
 	github.com/google/go-cmp v0.6.0
 	github.com/google/uuid v1.6.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
@@ -66,6 +68,7 @@ require (
 	go.opentelemetry.io/collector/processor v0.114.0
 	go.opentelemetry.io/collector/processor/batchprocessor v0.114.0
 	go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.114.0
+	go.opentelemetry.io/collector/processor/processortest v0.114.0
 	go.opentelemetry.io/collector/receiver v0.114.0
 	go.opentelemetry.io/collector/receiver/otlpreceiver v0.114.0
 	go.opentelemetry.io/collector/receiver/receivertest v0.114.0
@@ -119,7 +122,6 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.23.0 // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/goccy/go-json v0.10.3 // indirect
 	github.com/gogo/googleapis v1.4.1 // indirect
@@ -255,7 +257,6 @@ require (
 	go.opentelemetry.io/collector/pipeline v0.114.0 // indirect
 	go.opentelemetry.io/collector/pipeline/pipelineprofiles v0.114.0 // indirect
 	go.opentelemetry.io/collector/processor/processorprofiles v0.114.0 // indirect
-	go.opentelemetry.io/collector/processor/processortest v0.114.0 // indirect
 	go.opentelemetry.io/collector/receiver/receiverprofiles v0.114.0 // indirect
 	go.opentelemetry.io/collector/semconv v0.114.0 // indirect
 	go.opentelemetry.io/collector/service v0.114.0 // indirect

@@ -17,6 +17,6 @@ type SecurityViolationsConfig struct {
 func CreateDefaultSecurityViolationsConfig() component.Config {
 	return &SecurityViolationsConfig{
 		ServiceName: SecurityViolationsProcessorName,
-		Compression: Snappy,
+		Compression: Gzip,
 	}
 }

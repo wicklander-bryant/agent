@@ -8,9 +8,9 @@ import (
 
 var (
 	Type      = component.MustNewType("nginx")
-	ScopeName = "otelcol/nginxreceiver"
+	ScopeName = "otelcol/securityviolationsprocessor"
 )
 
 const (
-	MetricsStability = component.StabilityLevelBeta
+	LogsStability = component.StabilityLevelBeta
 )

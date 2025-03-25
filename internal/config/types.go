@@ -148,9 +148,10 @@ type (
 
 	// OTel Collector Processors configuration.
 	Processors struct {
-		Attribute *Attribute `yaml:"-" mapstructure:"attribute"`
-		Resource  *Resource  `yaml:"-" mapstructure:"resource"`
-		Batch     *Batch     `yaml:"-" mapstructure:"batch"`
+		Attribute                 *Attribute                   `yaml:"-" mapstructure:"attribute"`
+		Resource                  *Resource                    `yaml:"-" mapstructure:"resource"`
+		Batch                     *Batch                       `yaml:"-" mapstructure:"batch"`
+		SecurityViolationsGzipper *SecurityViolationsProcessor `yaml:"-" mapstructure:"security_violations_gzipper"`
 	}
 
 	Attribute struct {
@@ -178,6 +179,8 @@ type (
 		SendBatchMaxSize uint32        `yaml:"-" mapstructure:"send_batch_max_size"`
 		Timeout          time.Duration `yaml:"-" mapstructure:"timeout"`
 	}
+
+	SecurityViolationsProcessor struct{}
 
 	// OTel Collector Receiver configuration.
 	Receivers struct {

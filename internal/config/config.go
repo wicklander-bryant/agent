@@ -699,7 +699,9 @@ func resolveProcessors() Processors {
 			SendBatchMaxSize: viperInstance.GetUint32(CollectorBatchProcessorSendBatchMaxSizeKey),
 			Timeout:          viperInstance.GetDuration(CollectorBatchProcessorTimeoutKey),
 		},
-		SecurityViolationsProcessor: &SecurityViolationsProcessor{},
+		SecurityViolationsProcessor: &SecurityViolationsProcessor{
+			Compression: viper.GetString(CollectorSecurityViolationsProcessorCompKey),
+		},
 	}
 
 	if viperInstance.IsSet(CollectorAttributeProcessorKey) {

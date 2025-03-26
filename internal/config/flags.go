@@ -62,6 +62,8 @@ var (
 	CollectorBatchProcessorSendBatchSizeKey     = pre(CollectorBatchProcessorKey) + "send_batch_size"
 	CollectorBatchProcessorSendBatchMaxSizeKey  = pre(CollectorBatchProcessorKey) + "send_batch_max_size"
 	CollectorBatchProcessorTimeoutKey           = pre(CollectorBatchProcessorKey) + "timeout"
+	CollectorSecurityViolationsProcessorKey     = pre(CollectorProcessorsKey) + "securityviolationsprocessor"
+	CollectorSecurityViolationsProcessorCompKey = pre(CollectorSecurityViolationsProcessorKey) + "compression"
 	CollectorExtensionsKey                      = pre(CollectorRootKey) + "extensions"
 	CollectorExtensionsHealthKey                = pre(CollectorExtensionsKey) + "health"
 	CollectorExtensionsHealthServerHostKey      = pre(CollectorExtensionsHealthKey) + "server_host"

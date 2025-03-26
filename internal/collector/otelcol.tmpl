@@ -122,7 +122,9 @@ processors:
     send_batch_max_size: {{ .Processors.Batch.SendBatchMaxSize }}
 {{- end }}
 {{- if ne .Processors.SecurityViolationsProcessor nil }}
-  securityviolationsprocessor: {}
+  securityviolationsprocessor:
+    # compression not yet implemented
+    compression: "no-yet-implemented"
 {{- end }}
 
 exporters:

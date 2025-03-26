@@ -151,7 +151,7 @@ type (
 		Attribute                   *Attribute                   `yaml:"-" mapstructure:"attribute"`
 		Resource                    *Resource                    `yaml:"-" mapstructure:"resource"`
 		Batch                       *Batch                       `yaml:"-" mapstructure:"batch"`
-		SecurityViolationsProcessor *SecurityViolationsProcessor `yaml:"-" mapstructure:"security_violations_gzipper"`
+		SecurityViolationsProcessor *SecurityViolationsProcessor `yaml:"-" mapstructure:"securityviolationsprocessor"`
 	}
 
 	Attribute struct {
@@ -180,7 +180,9 @@ type (
 		Timeout          time.Duration `yaml:"-" mapstructure:"timeout"`
 	}
 
-	SecurityViolationsProcessor struct{}
+	SecurityViolationsProcessor struct {
+		Compression string `yaml:"-" mapstructure:"compression"`
+	}
 
 	// OTel Collector Receiver configuration.
 	Receivers struct {

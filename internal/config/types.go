@@ -148,10 +148,10 @@ type (
 
 	// OTel Collector Processors configuration.
 	Processors struct {
-		Attribute                 *Attribute                   `yaml:"-" mapstructure:"attribute"`
-		Resource                  *Resource                    `yaml:"-" mapstructure:"resource"`
-		Batch                     *Batch                       `yaml:"-" mapstructure:"batch"`
-		SecurityViolationsGzipper *SecurityViolationsProcessor `yaml:"-" mapstructure:"security_violations_gzipper"`
+		Attribute                   *Attribute                   `yaml:"-" mapstructure:"attribute"`
+		Resource                    *Resource                    `yaml:"-" mapstructure:"resource"`
+		Batch                       *Batch                       `yaml:"-" mapstructure:"batch"`
+		SecurityViolationsProcessor *SecurityViolationsProcessor `yaml:"-" mapstructure:"security_violations_gzipper"`
 	}
 
 	Attribute struct {

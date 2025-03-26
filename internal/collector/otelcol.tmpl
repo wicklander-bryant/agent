@@ -121,6 +121,9 @@ processors:
     timeout: {{ .Processors.Batch.Timeout }}
     send_batch_max_size: {{ .Processors.Batch.SendBatchMaxSize }}
 {{- end }}
+{{- if ne .Processors.SecurityViolationsProcessor nil }}
+  securityviolationsprocessor: {}
+{{- end }}
 
 exporters:
 {{- range $index, $otlpExporter := .Exporters.OtlpExporters }}
@@ -268,6 +271,9 @@ service:
         {{- end }}
         {{- if ne .Processors.Batch nil }}
         - batch
+        {{- end }}
+        {{- if ne .Processors.SecurityViolationsProcessor nil }}
+        - securityviolationsprocessor
         {{- end }}
       exporters:
         {{- range $index, $otlpExporter := .Exporters.OtlpExporters }}

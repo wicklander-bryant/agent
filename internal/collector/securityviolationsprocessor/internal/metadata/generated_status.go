@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	Type      = component.MustNewType("nginx")
+	Type      = component.MustNewType("securityviolationsprocessor")
 	ScopeName = "otelcol/securityviolationsprocessor"
 )
 

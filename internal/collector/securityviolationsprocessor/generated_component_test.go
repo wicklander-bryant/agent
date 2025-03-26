@@ -21,7 +21,7 @@ import (
 )
 
 func TestComponentFactoryType(t *testing.T) {
-	require.Equal(t, "nginx", NewFactory().Type().String())
+	require.Equal(t, "securityviolationsprocessor", NewFactory().Type().String())
 }
 
 func TestComponentConfigStruct(t *testing.T) {

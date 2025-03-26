@@ -1,4 +1,4 @@
-type: nginx
+type: securityviolationsprocessor
 scope_name: otelcol/securityviolationsprocessor
 
 status:

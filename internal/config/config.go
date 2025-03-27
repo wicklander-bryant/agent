@@ -384,6 +384,15 @@ func registerCollectorFlags(fs *flag.FlagSet) {
 	)
 
 	fs.String(
+		CollectorSecurityViolationsProcessorCompKey,
+		DefCollectorSecurityViolationsProcessorCom,
+		`Compression type applied to out going security violations. The supported compressions are as follows
+		    - none: No additional compression is applied to the security violations.
+		    - gzip: The security violations are compressed using the Gzip algorithm.
+			- snappy: The security violations are compressed using the Snappy algorithm.`,
+	)
+
+	fs.String(
 		CollectorExtensionsHealthServerHostKey,
 		DefCollectorExtensionsHealthServerHost,
 		`The hostname of the address to publish the OTel collector health check status.`,

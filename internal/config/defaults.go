@@ -8,6 +8,7 @@ import (
 	"math"
 	"time"
 
+	"github.com/nginx/agent/v3/internal/collector/securityviolationsprocessor"
 	pkg "github.com/nginx/agent/v3/pkg/config"
 )
 
@@ -64,6 +65,8 @@ const (
 	DefCollectorBatchProcessorSendBatchSize    = 8192
 	DefCollectorBatchProcessorSendBatchMaxSize = 0
 	DefCollectorBatchProcessorTimeout          = 200 * time.Millisecond
+
+	DefCollectorSecurityViolationsProcessorCom = securityviolationsprocessor.None
 
 	DefCollectorExtensionsHealthServerHost      = "localhost"
 	DefCollectorExtensionsHealthServerPort      = 13133

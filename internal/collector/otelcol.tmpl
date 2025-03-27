@@ -123,8 +123,7 @@ processors:
 {{- end }}
 {{- if ne .Processors.SecurityViolationsProcessor nil }}
   securityviolationsprocessor:
-    # compression not yet implemented
-    compression: "no-yet-implemented"
+    compression: "{{ .Processors.SecurityViolationsProcessor.Compression }}"
 {{- end }}
 
 exporters:

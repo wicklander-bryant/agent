@@ -26,12 +26,12 @@ const (
 	SecurityViolationsProcessorName = "securityviolationsprocessor"
 )
 
-type BodyCompression int64
+type BodyCompression string
 
 const (
-	None = iota
-	Gzip
-	Snappy
+	None   = "none"
+	Gzip   = "gzip"
+	Snappy = "snappy"
 )
 
 type SecurityViolationsProcessor struct {

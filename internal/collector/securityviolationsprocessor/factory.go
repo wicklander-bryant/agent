@@ -57,7 +57,7 @@ func CreateSecurityViolationsProcessorFunc(
 		compression: convertedConfig.Compression,
 	}
 
-	logger.Debug(fmt.Sprintf("create security violation processor (compression=%d)",
+	logger.Debug(fmt.Sprintf("create security violation processor (compression=%s)",
 		convertedConfig.Compression))
 
 	return sep, nil

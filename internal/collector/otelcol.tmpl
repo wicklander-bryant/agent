@@ -123,7 +123,7 @@ processors:
 {{- end }}
 {{- if ne .Processors.SecurityViolationsProcessor nil }}
   securityviolationsprocessor:
-    compression: "{{ .Processors.SecurityViolationsProcessor.Compression }}"
+    compression: "gzip"
 {{- end }}
 
 exporters:
